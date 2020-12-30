@@ -1,0 +1,14 @@
+{
+  "name": "akiary2dayone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kakeru Kasai <r@eumo.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "command-line-args": "^5.1.1",
+    "encoding-japanese": "^1.0.30",
+    "jsdom": "^16.4.0",
+    "sanitize-html": "^2.3.0"
+  }
+}
