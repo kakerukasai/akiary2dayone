@@ -74,7 +74,7 @@ class Akiary2DayOne {
               publishedOn = matches[3].substring(0, 4) + '-' + matches[3].substring(4, 6) + '-' + matches[3].substring(6, 8)
         const elH3 = elComment.nextElementSibling,
               titleDate = elH3.childNodes[0].textContent,
-              title = elH3.childNodes[3].textContent
+              title = elH3.childNodes[3].nodeType != 8 /* COMMENT_NODE */ ? elH3.childNodes[3].textContent : ''
         const elDiv = elH3.nextElementSibling,
               body = elDiv.innerHTML
 
