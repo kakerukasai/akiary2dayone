@@ -99,19 +99,22 @@ class Akiary2DayOne {
     }
     fs.mkdirSync(pathTempDir)
 
-    entries.forEach((entry) => {
-      const path = 'temp/' + entry.publishedOn + '.md'
+    for (let i = 0; i < entries.length; i++) {
+      const entry = entries[i],
+            path = 'temp/' + entry.publishedOn + '.md'
+
       fs.writeFileSync(
         path,
         entry.exportMarkdown(),
       )
 
       const cmd = `dayone2 -j ${this.options.journal} -z Asia/Tokyo --isoDate=${entry.getISOCreatedAt()} new < ${path}`
-      console.debug(cmd)
+
       exec(cmd, (err, stdout, stderr) => {
         console.log(err, stdout, stderr)
       })
-    })
+      await new Promise((resolve) => setTimeout(resolve, 4000))
+    }
   }
 
   deleteFolderRecursive (path) {
