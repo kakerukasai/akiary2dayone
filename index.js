@@ -9,7 +9,8 @@ const fs = require('fs'),
 const DEFAULT_OPTIONS = [
   { name: 'username', type: String },
   { name: 'password', type: String },
-  { name: 'url', type: String, multiple: true }
+  { name: 'url', type: String, multiple: true },
+  { name: 'journal', type: String },
 ]
 
 class Akiary2DayOne {
@@ -105,7 +106,7 @@ class Akiary2DayOne {
         entry.exportMarkdown(),
       )
 
-      const cmd = `dayone2 -j Imported -z Asia/Tokyo --isoDate=${entry.getISOCreatedAt()} new < ${path}`
+      const cmd = `dayone2 -j ${this.options.journal} -z Asia/Tokyo --isoDate=${entry.getISOCreatedAt()} new < ${path}`
       console.debug(cmd)
       exec(cmd, (err, stdout, stderr) => {
         console.log(err, stdout, stderr)
