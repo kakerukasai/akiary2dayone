@@ -113,7 +113,7 @@ class Akiary2DayOne {
       exec(cmd, (err, stdout, stderr) => {
         console.log(err, stdout, stderr)
       })
-      await new Promise((resolve) => setTimeout(resolve, 4000))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
     }
   }
 
